@@ -1,0 +1,144 @@
+.section-title{
+    padding-top: 10%;
+}
+
+/* Global Styles */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  background-color: #f2f2f2;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.mb-3{
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.section-title h1 {
+  font-size: 42px;
+  text-align: center;
+  font-weight: bold;
+  color: #1B2656;
+}
+.section-title h3 {
+    font-size: 18px;
+    margin-top: 10px;
+    text-align: center;
+    
+  }
+
+.section-title p {
+  font-size: 18px;
+  color: #4d5974;
+}
+
+/* About Us Section */
+
+.about-us {
+  padding-top: 60px;
+}
+
+.about-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.abut-detail p {
+  margin-bottom: 15px;
+  color: #4d5974;
+}
+
+.abut-detail p:last-child {
+  margin-bottom: 0;
+}
+
+.about-row img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Our Team Section */
+
+.out-team {
+  padding-top: 60px;
+}
+
+.team-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.teamc {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.teamc img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.teamc h4 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 0;
+  color: #1B2656;
+}
+
+.teamc span {
+  font-size: 14px;
+  color: #4d5974;
+}
+
+/* Footer Section */
+
+.app-footer {
+  background-color: #1B2656;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
+
+.copy {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: center;
+}
+
+.copy a {
+  color: #4d5974;
+  text-decoration: none;
+}
+
+.copy a:hover {
+  text-decoration: underline;
+}
+
+.small-image {
+    width: 350px; /* Ajustez la largeur selon vos besoins */
+    height: auto; /* Assurez-vous que la hauteur est ajustée proportionnellement */
+  }
+  
+
+  

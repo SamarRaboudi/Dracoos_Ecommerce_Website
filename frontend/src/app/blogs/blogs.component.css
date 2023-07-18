@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap');
+
+* {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  transition: all .2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  background-color: #fff2fe;
+}
+
+section {
+  padding: 5rem 10%;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 3.5rem;
+  text-transform: capitalize;
+  color: #444;
+}
+
+.blog {
+  margin-top: 5%;
+}
+
+.blog .box-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(30rem, 1fr))[auto-fit];
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 2rem;
+}
+
+.blog .box-container .box:hover .image img {
+  transform: none;
+}
+
+.blog .box-container .box.shadow {
+  box-shadow: 0px 18px 39.1px 6.9px rgba(224, 241, 255, 0.34) !important;
+}
+
+.blog .box-container .box .image {
+  height: 25rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.blog .box-container .box .image img {
+  height: 100%;
+  width: 100%;
+  max-width: 500px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.blog .box-container .box .image h3 {
+  background-color: #fff;
+  color: #444;
+  position: absolute;
+  top: 2rem;
+  left: 1rem;
+  padding: .5rem 1.5rem;
+  font-size: 1.5rem;
+  border-radius: 15px;
+}
+
+.blog .box-container .box .image h3 i {
+  color: blue;
+}
+
+.blog .box-container .box .content {
+  padding: 2rem;
+  background-color: #fff;
+}
+
+.blog .box-container .box .content h3 {
+  font-size: 2rem;
+}
+
+.blog .box-container .box .content p {
+  font-size: 1rem;
+  padding: 1rem 0;
+  line-height: 2;
+  color: #777;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.8rem 2rem;
+  font-size: 1.2rem;
+  border: 0.1rem solid blue;
+  background: #ffeeff;
+  color: blue;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.btn:hover {
+  background: #007FFF;
+  color: #ffeeff;
+}
+
+/* Responsive styles */
+
+/* Pour les écrans de petite taille */
+@media (max-width: 767px) {
+  .heading {
+    font-size: 2.5rem;
+  }
+
+  .blog .box-container {
+    grid-template-columns: 1fr;
+  }
+
+  .blog .box-container .box {
+    margin-bottom: 2rem;
+  }
+
+  .blog .box-container .box .image h3 {
+    font-size: 1.2rem;
+  }
+
+  .blog .box-container .box .content h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Pour les écrans de taille moyenne */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .blog .box-container {
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  }
+}
+
+/* Pour les écrans de grande taille et au-delà */
+@media (min-width: 1024px) {
+  .blog .box-container {
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  }
+}

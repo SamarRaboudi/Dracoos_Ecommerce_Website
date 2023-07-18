@@ -1,0 +1,198 @@
+<section class="bg-white">
+    <app-header></app-header>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+ <!-- ##################### Slider Starts Here #################### -->
+ 
+     <div>
+
+      <!-- product-details.component.html -->
+
+      <section class="product-details">
+        <a class="go-back" href="javascript:history.back()">
+    <i class="fas fa-chevron-left"></i> 
+  </a>
+        <div class="container">
+          <div class="product-images-container">
+            <div class="product-images-list">
+              <img *ngFor="let image of imageList; let i = index" [src]="image" [alt]="'Product Image ' + (i + 1)"
+                   (click)="updateSelectedImage(i)">
+              <!-- Ajoutez plus d'images si nécessaire -->
+            </div>
+          
+            <div class="product-image">
+              <div class="zoom-icon" (click)="toggleImageZoom()"></div>
+              <img [src]="selectedImage" alt="Selected Product Image"
+                   [ngClass]="{'zoomed': isImageZoomed}"
+                   (mousedown)="startDrag($event)"
+                   (mousemove)="doDrag($event)"
+                   (mouseup)="endDrag()">
+            </div>
+            
+          </div>
+          
+
+          
+          <div class="product-info">
+            <div class="circle">
+                <span class="text">Sale</span>
+              </div>
+
+            <h2 class="product-title">{{ productName }}</h2>
+            
+            <div class="product-rating">
+                <i class="fa fa-star" [ngClass]="{'filled': rating >= 1, 'fas fa-star-half-alt': rating >= 0.5 && rating < 1, 'not-filled': rating < 0.5}"></i>
+                <i class="fa fa-star" [ngClass]="{'filled': rating >= 2, 'fas fa-star-half-alt': rating >= 1.5 && rating < 2, 'not-filled': rating < 1.5}"></i>
+                <i class="fa fa-star" [ngClass]="{'filled': rating >= 3, 'fas fa-star-half-alt': rating >= 2.5 && rating < 3, 'not-filled': rating < 2.5}"></i>
+                <i class="fa fa-star" [ngClass]="{'filled': rating >= 4, 'fas fa-star-half-alt': rating >= 3.5 && rating < 4, 'not-filled': rating < 3.5}"></i>
+                <i class="fa fa-star" [ngClass]="{'filled': rating >= 5, 'fas fa-star-half-alt': rating >= 4.5 && rating < 5, 'not-filled': rating < 4.5}"></i>
+                <span class="rating-text">{{ rating }}</span>
+              </div>
+              
+              
+              
+              
+              <label for="price" class="labelPrice">Price : </label>
+              <p class="product-price" id="price">$ {{ productPrice }} </p><br><br>
+              
+            
+            <div class="product-options">
+              <!-- Ajoutez ici les options du produit (taille, couleur, etc.) -->
+            </div>
+            <div class="quantity-box">
+              <label for="quantity">Quantity:</label>
+              <div class="quantity-controls">
+                <button class="quantity-decrease" (click)="decreaseQuantity()" [class.clicked]="buttonDecreaseClicked">-</button>
+                <input type="number" id="quantity" name="quantity" [(ngModel)]="quantity" min="1">
+                <button class="quantity-increase" (click)="increaseQuantity()" [class.clicked]="buttonIncreaseClicked">+</button>
+              </div>
+            </div>
+            <button class="add-to-cart" (click)="addToCart()">
+                <i class="fa fa-shopping-cart"></i> Add to Cart
+              </button>
+              <br>
+
+              <p class="product-description">{{ productDescription }}</p>
+            <div class="tab-container">
+                <div class="tab" (click)="toggleTabContentDetails()">
+                  <span class="tab-title">Details</span>
+                  
+                  <i class="fas" [ngClass]="{'fa-chevron-down': showTabContentDetails, 'fa-chevron-right': !showTabContentDetails}"></i>
+                </div>
+                <div class="tab-content" *ngIf="showTabContentDetails">
+                  <!-- Contenu du tab "Features" -->
+                  <ul>
+                    <li><i class="fas fa-tint blue-icon"></i>   The filter uses a seven-layer purification system that is designed to remove a wide range of contaminants. The first layer removes rust and other large particles. The next three layers remove chlorine, chloramines, and other organic contaminants. The final three layers remove heavy metals, bacteria, and other harmful microorganisms.</li>
+                    <li><i class="fas fa-tint blue-icon"></i>   The Dracoss 5-Layer Ceramic Water Purifier Filter is easy to install and maintain. Simply attach the filter to your kitchen faucet and turn on the water. The filter will automatically start filtering your water. The filter should be replaced every six months to ensure optimal performance.</li>
+                    <li><i class="fas fa-tint blue-icon"></i>   The Dracoss 5-Layer Ceramic Water Purifier Filter is a great way to improve the quality of your water and protect your health. Order yours today and start enjoying clean, safe, and refreshing water.</li>
+                  </ul>
+                  
+                </div>
+              </div>
+
+              <div class="horizontal-line"></div>
+
+            <div class="tab-container">
+              <div class="tab" (click)="toggleTabContentFeatures()">
+                <span class="tab-title">Features</span>
+                
+                <i class="fas" [ngClass]="{'fa-chevron-down': showTabContentFeatures, 'fa-chevron-right': !showTabContentFeatures}"></i>
+              </div>
+              <div class="tab-content" *ngIf="showTabContentFeatures">
+                <!-- Contenu du tab "Features" -->
+                <ul>
+                    <li><i class="fas fa-tint blue-icon"></i>   Removes rust, harmful bacteria, and other contaminants from your tap water.</li>
+                    <li><i class="fas fa-tint blue-icon"></i>   Provides clean, safe, and refreshing water for drinking, cooking, and other household uses.</li>
+                    <li><i class="fas fa-tint blue-icon"></i>   asy to install and maintain.</li>
+                    <li><i class="fas fa-tint blue-icon"></i>   Switching option between Raw water and Purified water: You want to dishwash, clean vegetables & fruits… you can use the raw water, in case you want to wash your face and to drink, you can use our purified water from the filter, in this way, the lifetime of the filter will be extended.</li>
+                  </ul>
+              </div>
+            </div>
+
+            <div class="horizontal-line"></div>
+
+           
+
+              <div class="tab-container">
+                <div class="tab" (click)="toggleTabContentBenefits()">
+                  <span class="tab-title">Benefits</span>
+                  
+                  <i class="fas" [ngClass]="{'fa-chevron-down': showTabContentBenefits, 'fa-chevron-right': !showTabContentBenefits}"></i>
+                </div>
+                <div class="tab-content" *ngIf="showTabContentBenefits">
+                  <!-- Contenu du tab "Features" -->
+                  <ul>
+                    <li><i class="fas fa-tint blue-icon"></i>  Safe and refreshing drinking water.</li>
+                    <li><i class="fas fa-tint blue-icon"></i>  Reduced risk of waterborne diseases.</li>
+                    <li><i class="fas fa-tint blue-icon"></i>  Improved taste of water.</li>
+                    <li><i class="fas fa-tint blue-icon"></i>  Easy to install and maintain.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="horizontal-line"></div>
+
+          </div>
+
+         
+          
+
+        </div>
+        
+
+      </section>
+      <div class="technical-overview">
+        <h1>Technical Overview:</h1>
+        <table>
+          <tr>
+            <td>Company</td>
+            <td>Dracoss Ic</td>
+          </tr>
+          <tr>
+            <td>Model</td>
+            <td>Water Faucet</td>
+          </tr>
+          <tr>
+            <td>Application</td>
+            <td>Any Tap with connector</td>
+          </tr>
+          <tr>
+            <td>Filter Life</td>
+            <td>6-8 months</td>
+          </tr>
+          <tr>
+            <td>Product Name</td>
+            <td>Dracoss Tap filter</td>
+          </tr>
+          <tr>
+            <td>Product Size</td>
+            <td>65*65*105mm</td>
+          </tr>
+          <tr>
+            <td>Applicable Water</td>
+            <td>Municipal water</td>
+          </tr>
+          <tr>
+            <td>Filter Material</td>
+            <td>Plastic</td>
+          </tr>
+          <tr>
+            <td>Product Flow</td>
+            <td>8.0 l/min</td>
+          </tr>
+          <tr>
+            <td>Working Temperature</td>
+            <td>5-55 degrees</td>
+          </tr>
+        </table>
+      </div>
+      
+      
+          
+     </div>
+
+      <!--- ############ Footer Starts Here ################## -->
+<app-footer></app-footer>
+
+
+</section>

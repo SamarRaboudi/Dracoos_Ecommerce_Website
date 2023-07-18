@@ -1,0 +1,157 @@
+<section class="bg-white">
+    <app-header></app-header>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+ <!-- ##################### Slider Starts Here #################### -->
+      
+ <div >
+
+  <!-- product-details.component.html -->
+
+  <section class="product-details">
+    <a class="go-back" href="javascript:history.back()">
+<i class="fas fa-chevron-left"></i> 
+</a>
+    <div class="container">
+      <div class="product-image">
+        <img src="assets/images/product/dracossMachine.png" alt="WaterPurifierFilter Image">
+      </div>
+      
+      <div class="product-info">
+        <div class="circle">
+            <span class="text">Sale</span>
+          </div>
+
+        <h2 class="product-title">{{ productName }}</h2>
+        
+        <div class="product-rating">
+            <i class="fa fa-star" [ngClass]="{'filled': rating >= 1, 'fas fa-star-half-alt': rating >= 0.5 && rating < 1, 'not-filled': rating < 0.5}"></i>
+            <i class="fa fa-star" [ngClass]="{'filled': rating >= 2, 'fas fa-star-half-alt': rating >= 1.5 && rating < 2, 'not-filled': rating < 1.5}"></i>
+            <i class="fa fa-star" [ngClass]="{'filled': rating >= 3, 'fas fa-star-half-alt': rating >= 2.5 && rating < 3, 'not-filled': rating < 2.5}"></i>
+            <i class="fa fa-star" [ngClass]="{'filled': rating >= 4, 'fas fa-star-half-alt': rating >= 3.5 && rating < 4, 'not-filled': rating < 3.5}"></i>
+            <i class="fa fa-star" [ngClass]="{'filled': rating >= 5, 'fas fa-star-half-alt': rating >= 4.5 && rating < 5, 'not-filled': rating < 4.5}"></i>
+            <span class="rating-text">{{ rating }}</span>
+          </div>
+          
+          
+          
+          <span>The Dracoss Greywater Recycling Machine is currently under development </span><br>
+          <label for="price" class="labelPrice">Price : </label>
+          <p class="product-price" id="price"> {{ productPrice }} </p><br><br>
+          
+        <p class="product-description">{{ productDescription }}</p>
+        <div class="product-options">
+          <!-- Ajoutez ici les options du produit (taille, couleur, etc.) -->
+        </div>
+        <div class="quantity-box">
+          <label for="quantity">Quantity:</label>
+          <div class="quantity-controls">
+            <button class="quantity-decrease" (click)="decreaseQuantity()" [class.clicked]="buttonDecreaseClicked">-</button>
+            <input type="number" id="quantity" name="quantity" [(ngModel)]="quantity" min="1">
+            <button class="quantity-increase" (click)="increaseQuantity()" [class.clicked]="buttonIncreaseClicked">+</button>
+          </div>
+        </div>
+        <button class="add-to-cart" (click)="addToCart()">
+            <i class="fa fa-shopping-cart"></i>  Add to Cart
+          </button>
+
+
+        <div class="tab-container">
+            <div class="tab" (click)="toggleTabContentDetails()">
+              <span class="tab-title">Details</span>
+              
+              <i class="fas" [ngClass]="{'fa-chevron-down': showTabContentDetails, 'fa-chevron-right': !showTabContentDetails}"></i>
+            </div>
+            <div class="tab-content" *ngIf="showTabContentDetails">
+              <!-- Contenu du tab "Features" -->
+             <p>
+              Greywater is the wastewater that comes from baths,
+               showers, sinks, and washing machines.
+                It is not contaminated with fecal matter,
+                 so it can be safely reused for non-drinking purposes.
+                  The Dracoss Greywater Recycling Machine uses a variety of filtration 
+                  and purification methods to remove contaminants from greywater, including:  
+             </p> <br>
+              <ul>
+                <li><i class="fas fa-tint blue-icon"></i>  Special Sediment Tank
+                </li>
+                <li><i class="fas fa-tint blue-icon"></i>   Filtration with membranes
+                </li>
+                <li><i class="fas fa-tint blue-icon"></i>   UV disinfection
+                </li>
+              </ul><br>
+              <p>
+                The Dracoss Greywater Recycling Machine is a great way to save water and money, and it is also a great way to protect the environment. By recycling greywater, you can reduce the amount of wastewater that goes to the treatment plant, which can help to conserve water resources and reduce pollution.
+
+
+              </p>
+            </div>
+          </div>
+
+          <div class="horizontal-line"></div>
+
+        <div class="tab-container">
+          <div class="tab" (click)="toggleTabContentFeatures()">
+            <span class="tab-title">Features</span>
+            
+            <i class="fas" [ngClass]="{'fa-chevron-down': showTabContentFeatures, 'fa-chevron-right': !showTabContentFeatures}"></i>
+          </div>
+          <div class="tab-content" *ngIf="showTabContentFeatures">
+            <!-- Contenu du tab "Features" -->
+            <ul>
+                <li><i class="fas fa-tint blue-icon"></i>   Reduces your water consumption by up to 50%.</li>
+                <li><i class="fas fa-tint blue-icon"></i>   Saves you money on your water bill.
+                </li>
+                <li><i class="fas fa-tint blue-icon"></i>   Protects the environment by reducing the amount of wastewater that goes to the treatment plant.
+                </li>
+                <li><i class="fas fa-tint blue-icon"></i>   Can be used in a variety of settings, including homes, businesses, and schools.</li>
+              </ul>
+          </div>
+        </div>
+
+        <div class="horizontal-line"></div>
+
+       
+
+          <div class="tab-container">
+            <div class="tab" (click)="toggleTabContentBenefits()">
+              <span class="tab-title">Benefits</span>
+              
+              <i class="fas" [ngClass]="{'fa-chevron-down': showTabContentBenefits, 'fa-chevron-right': !showTabContentBenefits}"></i>
+            </div>
+            <div class="tab-content" *ngIf="showTabContentBenefits">
+              <!-- Contenu du tab "Features" -->
+              <ul>
+                <li><i class="fas fa-tint blue-icon"></i>  Save water and money.</li>
+                <li><i class="fas fa-tint blue-icon"></i>  Protect the environment.
+                </li>
+                <li><i class="fas fa-tint blue-icon"></i>  Reuse greywater for non-drinking applications.
+                </li>
+                <li><i class="fas fa-tint blue-icon"></i>  Easy to install and maintain.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="horizontal-line"></div>
+
+      </div>
+
+     
+      
+
+    </div>
+    
+
+  </section>
+   
+  
+  
+      
+ </div>
+
+      <!--- ############ Footer Starts Here ################## -->
+<app-footer></app-footer>
+
+
+</section>

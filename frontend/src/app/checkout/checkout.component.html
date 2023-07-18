@@ -1,0 +1,327 @@
+<app-header></app-header>
+<section class="bg-white">
+ 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+ <!-- ##################### Slider Starts Here #################### -->
+ 
+     <div  >
+<section class="details">
+    <h3>Checkout</h3>
+    <br>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let produit of produits; let i = index">
+          <td class="product">
+            <div class="product-item">
+              <div class="product-icon" (click)="deleteProduct(i)"><i class="far fa-times-circle icone"></i></div>
+              <img src="assets/images/product/waterPurifierFilter.png" alt="Image produit">
+              <span class="productName">{{ productName }}</span>
+            </div>
+          </td>
+          <td class="price">{{ productPrice }} $</td>
+          <td class="quantity"><div class="quantity-box"> 
+            <div class="quantity-controls">
+              <button class="quantity-decrease" (click)="decreaseQuantity()" [class.clicked]="buttonDecreaseClicked">-</button>
+              <input type="number" id="quantity" name="quantity" [(ngModel)]="quantity" (ngModelChange)="updateTotal()" min="1">
+              <button class="quantity-increase" (click)="increaseQuantity()" [class.clicked]="buttonIncreaseClicked">+</button>
+            </div>
+            
+          </div></td>
+          <td class="subtotal">{{ subTotal }} $</td>
+        </tr>
+
+        <tr>
+          <td colspan="4">
+            <div class="additional-row">
+              <input type="text" placeholder="Coupon Code" class="coupon-input">
+              <button class="coupon-button">Apply Coupon</button> 
+            </div>
+          </td>
+        </tr>
+        <!-- Ajoutez plus de lignes pour chaque produit du panier -->
+      </tbody>
+    </table>
+    <div class="container">
+    <div class="billing">
+      <h3>Billing details<hr></h3>
+
+      <form class="form">
+        
+        
+          <div class="form-group">
+      <div class="name-fields">
+        <div class="form-field first-name">
+          <label for="first-name">First name <span class="redstar">*</span></label>
+          <input type="text" id="first-name" name="first-name" required>
+        </div>
+
+        <div class="form-field last-name">
+          <label for="last-name">Last name <span class="redstar">*</span></label>
+          <input type="text" id="last-name" name="last-name" required>
+        </div>
+      </div>
+    </div>  
+        <div class="form-group">
+          <label for="company-name">Company name (optional)</label>
+          <input type="text" id="company-name" name="company-name">
+        </div>
+        
+        <div class="form-group">
+          <label for="country">Country / Region <span class="redstar">*</span></label>
+          <select id="country" name="country" required>
+            <option value="">Select Country</option>
+            <option value="US">United States (US)</option>
+            <!-- Ajoutez d'autres options pour différents pays -->
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="street-address">Street address <span class="redstar">*</span></label>
+          <input type="text" id="street-address" name="street-address" placeholder="House number and street name" required><br>
+          <input type="text" id="house-number" name="house-number" placeholder="Apartment, suite, unit, etc. (optional)" style="margin-top: 10px;">
+        </div>
+        
+         
+ 
+        
+        <div class="form-group">
+          <label for="town-city">Town / City <span class="redstar">*</span></label>
+          <input type="text" id="town-city" name="town-city" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="state">State <span class="redstar">*</span></label>
+          <select id="country" name="country" required>
+            <option value="">Select Country</option>
+            <option value="US">United States (US)</option>
+            <!-- Ajoutez d'autres options pour différents pays -->
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="zip-code">ZIP Code <span class="redstar">*</span></label>
+          <input type="text" id="zip-code" name="zip-code" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Phone <span class="redstar">*</span></label>
+          <input type="text" id="phone" name="phone" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email address <span class="redstar">*</span></label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group checkbox">
+          
+          <input type="checkbox" id="create-account" name="create-account">
+          <label for="create-account">Create an account?</label>
+        </div>
+        <div class="form-group checkbox">
+          
+          <input type="checkbox" id="unsubscrive-newsletters" name="unsubscrive-newsletters">
+          <label for="unsubscrive-newsletters">Unsubscribe from newsletters</label>
+        </div>
+        
+        <div class="form-group checkbox">
+          <input type="checkbox" id="ship-to-different-address" name="ship-to-different-address"
+                 [(ngModel)]="isShipToDifferentAddress"
+                 (change)="onCheckboxChange()">
+          <label for="ship-to-different-address" style="font-size: 20px;">Ship to a different address?</label>
+        </div>
+<hr class="formShippinghr">
+        <div class="formShipping" *ngIf="isShipToDifferentAddress">
+
+
+          <form class="form">
+        
+        
+            <div class="form-group">
+        <div class="name-fields">
+          <div class="form-field first-name">
+            <label for="first-name">First name <span class="redstar">*</span></label>
+            <input type="text" id="first-name" name="first-name" required>
+          </div>
+  
+          <div class="form-field last-name">
+            <label for="last-name">Last name <span class="redstar">*</span></label>
+            <input type="text" id="last-name" name="last-name" required>
+          </div>
+        </div>
+      </div>  
+          <div class="form-group">
+            <label for="company-name">Company name (optional)</label>
+            <input type="text" id="company-name" name="company-name">
+          </div>
+          
+          <div class="form-group">
+            <label for="country">Country / Region <span class="redstar">*</span></label>
+            <select id="country" name="country" required>
+              <option value="">Select Country</option>
+              <option value="US">United States (US)</option>
+              <!-- Ajoutez d'autres options pour différents pays -->
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="street-address">Street address <span class="redstar">*</span></label>
+            <input type="text" id="street-address" name="street-address" placeholder="House number and street name" required><br>
+            <input type="text" id="house-number" name="house-number" placeholder="Apartment, suite, unit, etc. (optional)" style="margin-top: 10px;">
+          </div>
+          
+           
+   
+          
+          <div class="form-group">
+            <label for="town-city">Town / City <span class="redstar">*</span></label>
+            <input type="text" id="town-city" name="town-city" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="state">State <span class="redstar">*</span></label>
+            <select id="country" name="country" required>
+              <option value="">Select Country</option>
+              <option value="US">United States (US)</option>
+              <!-- Ajoutez d'autres options pour différents pays -->
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="zip-code">ZIP Code <span class="redstar">*</span></label>
+            <input type="text" id="zip-code" name="zip-code" required>
+          </div>
+          
+      
+          
+        
+        </form>
+
+        </div>
+        
+        <div class="form-group">
+          <label for="order-notes">Order notes (optional)</label>
+          <textarea id="order-notes" name="order-notes" placeholder="Notes about your order, e.g. sepcial notes for delivery"></textarea>
+        </div>
+        
+      
+      </form>
+    </div>
+<div class="payment"  >
+  <div class="order-summary">
+    <span class="order">Your order</span>
+    <div class="product-details">
+      <div class="productcard">
+        <span style="font-weight: bold;" >Product</span>
+        <span  style="font-weight: bold;" >Subtotal</span>
+      </div>
+      <div class="productcard">
+        <span class="product-name">{{productName}}</span>
+        <span class="product-quantity">× {{quantity}} </span>
+      </div>
+      <div class="subtotalcard">
+        <span class="subtotal-label">Subtotal</span>
+        <span class="subtotal-value">$ {{subTotal}}0</span>
+      </div>
+      <div class="shippingcard">
+        <span class="shipping-label">Shipping</span>
+        <span class="shipping-value">Worldwide Free Shipping</span>
+      </div>
+      <div class="totalcard">
+        <span class="total-label">Total</span>
+        <span class="total-value">$ {{total}}</span>
+      </div>
+    </div>
+    <div class="payment-method">
+       
+      <form [formGroup]="paymentForm" class="paymentFormStyle">
+        <div class="payment-option">
+          <div class="radio-container">
+            <input type="radio" id="paypal-radio" formControlName="paymentMethod" value="paypal" (click)="onPaymentMethodPaypal()">
+            <div class="radio-custom"></div>
+          </div>
+          <label for="paypal-radio" [class.label-selected]="paymentForm.value.paymentMethod === 'paypal'">PayPal
+            <img class="paypalimg" src="assets/payment/paypal_logo.png" alt="PayPal Logo">
+          </label>
+        </div>
+      
+        <div class="line" [ngClass]="{ 'expanded': paymentForm.value.paymentMethod != 'credit-card' }"></div>
+
+        <div class="payment-option">
+          <div class="radio-container radioCards" [class.radio-selected]="paymentForm.value.paymentMethod === 'credit-card'">
+            <input type="radio" id="credit-card-radio" formControlName="paymentMethod" value="credit-card" (click)="onPaymentMethodChange()">
+            <div class="radio-custom"></div>
+          </div>
+          
+          <div class="label-container" [class.label-selected]="paymentForm.value.paymentMethod === 'credit-card'">
+            <label for="credit-card-radio">Credit Card Payment</label>
+          </div><br>
+          <div class="credit-card-logos-container" [ngClass]="{ 'expanded': paymentForm.value.paymentMethod === 'credit-card' }">
+            <div class="credit-card-logos">
+              <div class="credit-card-logo">
+                <img src="assets/payment/visa_logo.png" alt="Visa Logo">
+              </div>
+              <div class="credit-card-logo">
+                <img src="assets/payment/discover_logo.png" alt="Discover Logo">
+              </div>
+              <div class="credit-card-logo">
+                <img src="assets/payment/mastercard_logo.png" alt="Mastercard Logo">
+              </div>
+              <div class="credit-card-logo">
+                <img src="assets/payment/visa_logo2.png" alt="Visa Logo">
+              </div>
+              <!-- Ajoutez les autres logos de cartes de crédit ici -->
+            </div>
+          </div>
+        </div>
+      </form>
+      
+      
+      
+      
+      
+      
+    
+    </div>
+    
+    
+    <div class="terms-conditions">
+      <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
+      <input type="checkbox" id="terms-checkbox" class="termscheckbox">
+      <label for="terms-checkbox" class="terms-checkboxlabel">    I have read and agree to the website terms and conditions</label>
+    </div>
+    <div class="button-container">
+      <button class="buttonPaypal" *ngIf="paymentForm.value.paymentMethod !== 'credit-card'"> 
+      </button>
+      
+      <button class="buttoncreditCard" *ngIf="paymentForm.value.paymentMethod === 'credit-card'">Place order</button>
+    </div>
+  </div>
+  
+</div>
+</div>
+      
+
+</section>
+        
+          
+         
+     </div>
+
+      <!--- ############ Footer Starts Here ################## -->
+
+ 
+
+
+</section>
+<app-footer></app-footer>

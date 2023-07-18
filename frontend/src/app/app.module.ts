@@ -10,6 +10,14 @@ import { ProductsComponent } from './products/products.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './login/login.component';
+import { TapWaterFilterComponent } from './tap-water-filter/tap-water-filter.component';
+import { WaterRecyclingMachineComponent } from './water-recycling-machine/water-recycling-machine.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FaqComponent } from './faq/faq.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+
 
 @NgModule({
   declarations: [
@@ -20,11 +28,18 @@ import { FooterComponent } from './footer/footer.component';
     ProductsComponent,
     BlogsComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    TapWaterFilterComponent,
+    WaterRecyclingMachineComponent,
+    FaqComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
