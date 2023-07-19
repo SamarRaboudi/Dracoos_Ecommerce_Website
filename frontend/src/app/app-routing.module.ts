@@ -11,6 +11,10 @@ import { TapWaterFilterComponent } from './tap-water-filter/tap-water-filter.com
 import { WaterRecyclingMachineComponent } from './water-recycling-machine/water-recycling-machine.component';
 import { FaqComponent } from './faq/faq.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { PrivacyComponent } from './policies/privacy/privacy.component';
+import { RefundComponent } from './policies/refund/refund.component';
+import { ShippingComponent } from './policies/shipping/shipping.component';
+import { TermsOfServiceComponent } from './policies/terms-of-service/terms-of-service.component';
 
 const routes: Routes = [
   { path: '', component:HomeComponent},
@@ -24,7 +28,11 @@ const routes: Routes = [
   { path: 'water-tap-filter', component:TapWaterFilterComponent},
   { path: 'water-recycling-machine', component:WaterRecyclingMachineComponent},
   { path: 'faq', component:FaqComponent},
-  { path: 'checkout', component:CheckoutComponent }
+  { path: 'checkout', component:CheckoutComponent },
+  { path: 'privacy-policy', component:PrivacyComponent },
+  { path: 'refund-policy', component:RefundComponent },
+  { path: 'shipping-policy', component:ShippingComponent },
+  { path: 'terms-of-service', component:TermsOfServiceComponent },
 
 ];
 

@@ -17,6 +17,10 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FaqComponent } from './faq/faq.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { PrivacyComponent } from './policies/privacy/privacy.component';
+import { RefundComponent } from './policies/refund/refund.component';
+import { ShippingComponent } from './policies/shipping/shipping.component';
+import { TermsOfServiceComponent } from './policies/terms-of-service/terms-of-service.component';
 
 
 @NgModule({
@@ -33,7 +37,11 @@ import { CheckoutComponent } from './checkout/checkout.component';
     TapWaterFilterComponent,
     WaterRecyclingMachineComponent,
     FaqComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    PrivacyComponent,
+    RefundComponent,
+    ShippingComponent,
+    TermsOfServiceComponent
   ],
   imports: [
     BrowserModule,

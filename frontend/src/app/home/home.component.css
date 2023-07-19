@@ -67,6 +67,7 @@
     margin-bottom: 30px;
     font-size: 3rem;
     text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+   
 }
 .values{
     display: flex;
@@ -82,6 +83,19 @@
 .about-row{
     position: relative;
    
+}
+.about-img{
+   text-align: center;
+}
+.about-img img{
+    border-radius: 5px; 
+    width:80%; 
+    margin:0 auto;
+}
+.about-desc{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .splach-machine-pic{
     position: absolute;
@@ -146,7 +160,7 @@
     border-radius: 37% 27% 59% 41% / 57% 59% 41% 43%;
 }
 .drop:nth-child(3){
-    border-radius: 37% 27% 59% 41% / 57% 59% 41% 43%;
+    border-radius: 57% 43% 43% 57% / 43% 43% 57% 57%;
 }
 .drop:nth-child(4){
     border-radius: 37% 27% 59% 41% / 57% 59% 41% 43%;
@@ -277,7 +291,7 @@ video{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 2rem;
+ /*    padding-top: 2rem; */
 }
 .video-section .gallery div{
     border-radius: 5px;

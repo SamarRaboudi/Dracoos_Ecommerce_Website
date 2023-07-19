@@ -10,22 +10,23 @@ export class TapWaterFilterComponent implements OnInit {
   quantity: number = 1;
   productName: string = 'The Dracoss Water Purifier Filter';
   productPrice: number = 35;
-  productDescription: string = 'The Dracoss Water Purifier Filter is a state-of-the-art water filter that can remove rust, harmful bacteria, and other contaminants from your tap water. This results in clean, safe, and refreshing water that is perfect for drinking, cooking, and other household uses.  ';
+  productDescription: string = 'The Dracoss Water Tap Purifier is a revolutionary device designed to transform your regular tap water into clean, safe, and great-tasting water. Powered by an advanced filtration technology, it effectively reduces common contaminants like chlorine, heavy metals, bacteria, and sediments, while retaining beneficial minerals.';
   buttonIncreaseClicked = false
   buttonDecreaseClicked = false
   showTabContentFeatures: boolean = false;
   showTabContentDetails: boolean = false;
-  showTabContentBenefits: boolean = false;
+  showTabContentTechnicalOverview: boolean = false;
+  showTabContentShipping: boolean = false
   activeTab: string = ''; 
   rating : number = 3.5;
-
+  selectedColor!: string;
 
   selectedImageIndex: number = 0;
-  selectedImage: string = "assets/images/product/waterPurifierFilter.png";
+  selectedImage: string = "../../assets/images/product/waterPurifierFilter.png";
   imageList: string[] = [
-    "assets/images/product/WaterPurifierFilter2.png",
-    "assets/images/product/WaterPurifierFilter3.jpg",
-    "assets/images/product/WaterPurifierFilter4.jpg",
+    "../../assets/images/product/WaterPurifierFilter2.png",
+    "../../assets/images/product/WaterPurifierFilter3.jpg",
+    "../../assets/images/product/WaterPurifierFilter4.jpg",
     // Ajoutez plus de chemins d'accès d'images si nécessaire
   ];
   
@@ -36,8 +37,11 @@ export class TapWaterFilterComponent implements OnInit {
   
   constructor(private router : Router) { }
 
+  ngOnInit(): void { 
+  }
 
-  ngOnInit(): void {
+  selectColor(color: string) {
+    this.selectedColor = color;
   }
 
   startDrag(event: MouseEvent) {
@@ -107,22 +111,33 @@ export class TapWaterFilterComponent implements OnInit {
   toggleTabContentFeatures() {
     this.showTabContentFeatures = !this.showTabContentFeatures;
     this.showTabContentDetails = false
-    this.showTabContentBenefits = false
+    this.showTabContentTechnicalOverview = false
+    this.showTabContentShipping = false
+  }
+
+  toggleTabContentShipping() {
+    this.showTabContentShipping = !this.showTabContentShipping;
+    this.showTabContentDetails = false
+    this.showTabContentTechnicalOverview = false
+    this.showTabContentFeatures = false
   }
 
   toggleTabContentDetails() {
     this.showTabContentDetails = !this.showTabContentDetails;
-    this.showTabContentBenefits = false
+    this.showTabContentTechnicalOverview = false
     this.showTabContentFeatures = false
+    this.showTabContentShipping = false
 
   }
 
-  toggleTabContentBenefits() {
-    this.showTabContentBenefits = !this.showTabContentBenefits;
+  toggleTabContentTechnicalOverview() {
+    this.showTabContentTechnicalOverview = !this.showTabContentTechnicalOverview;
     this.showTabContentDetails = false
     this.showTabContentFeatures = false
+    this.showTabContentShipping = false
 
     }
+
 
 
 
