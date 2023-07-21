@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+
 import { WaterRecyclingMachineComponent } from './water-recycling-machine.component';
 
 describe('WaterRecyclingMachineComponent', () => {

@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceService } from '../service/service.service';
+
 
 @Component({
   selector: 'app-water-recycling-machine',
   templateUrl: './water-recycling-machine.component.html',
-  styleUrls: ['./water-recycling-machine.component.css']
+  styleUrls: ['./water-recycling-machine.component.css'],
+  providers : [ServiceService],
 })
 export class WaterRecyclingMachineComponent implements OnInit {
 
@@ -18,7 +21,7 @@ export class WaterRecyclingMachineComponent implements OnInit {
   showTabContentBenefits: boolean = false;
   activeTab: string = ''; 
   rating : number = 3.5;
-  constructor() { }
+  constructor(private service : ServiceService) { }
 
   ngOnInit(): void { 
   }

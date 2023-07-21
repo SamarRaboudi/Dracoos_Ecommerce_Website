@@ -21,6 +21,7 @@ import { PrivacyComponent } from './policies/privacy/privacy.component';
 import { RefundComponent } from './policies/refund/refund.component';
 import { ShippingComponent } from './policies/shipping/shipping.component';
 import { TermsOfServiceComponent } from './policies/terms-of-service/terms-of-service.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { TermsOfServiceComponent } from './policies/terms-of-service/terms-of-se
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

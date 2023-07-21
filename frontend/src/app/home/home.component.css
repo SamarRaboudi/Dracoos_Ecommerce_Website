@@ -1,11 +1,17 @@
+.flex{
+    display: flex;
+    align-items: center;
+}
+.flex-center{
+    justify-content: center;
+}
+.flex-between{
+    justify-content: space-between;
+}
 .carousel-inner{
     padding-top: 16rem;
 } 
-.carousel-caption{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+
 .slide-desc{
     width: 50%;
 }
@@ -69,11 +75,7 @@
     text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
    
 }
-.values{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+
 
 .machine-img{
     width: 40%;
@@ -89,13 +91,9 @@
 }
 .about-img img{
     border-radius: 5px; 
-    width:80%; 
+    width:50%; 
     margin:0 auto;
-}
-.about-desc{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.2));
 }
 .splach-machine-pic{
     position: absolute;
@@ -138,8 +136,6 @@
     transform: rotate(-45deg);
     margin-top: 50px;
     border: 5px solid #fff;
-
-
 }
 .drop{
     width :230px;
@@ -149,9 +145,6 @@
     25px 30px 30px rgba(0,0,0,0.05),
     inset -20px -20px 25px rgba(255,255,255,0.29) ;
     transition: 0.5s ease-in-out;
-    display: flex;
-    align-items: center;
-   
 }
 .drop:nth-child(1){
     border-radius: 57% 43% 43% 57% / 43% 43% 57% 57%;
@@ -182,9 +175,6 @@
 }
 .drop .content{
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     text-align: center;
     padding: 40px;
@@ -233,60 +223,21 @@
     opacity: 1;
 }
 /*****blg*****/
+.blog{
+    width: 100%; 
+    height:300px;
+    border-radius: 5px;
+}
+.blog img{
+    width: 100%;
+    height:100%;
+    border-radius: 5px;
+}
 
 .blog-link:hover{
     color: #1690F0;
 }
-.video{
-    margin: 0 auto;
-    max-width: 1000px;
-    width: 60%;
-    border-radius: 5px;
-}
-video{
-    border-radius: 5px;
-}
-.about-video{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 900px;
-    margin: 0 auto;
-    padding:3.5rem 0;
-}
-.video-title{
-    width: 45%;
-    position: relative;
-    border-right: 3px solid #1690F0;
-}
-.video-title h1{
-    color: #1B2656;
-}
-.line{
-    position:relative;
-    width: 300px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2rem;
-    margin: 0 auto;
-    }
-.line::before{
-    content: 'aaaa';
-    position: absolute;
-    bottom:40px ;
-    right: 0;
-    font-size: 2rem;
-    text-decoration-style: wavy;
-    text-decoration-color:#1690F0;
-    text-decoration-line: underline;
-    text-align: center;
-    color: transparent; 
-}
-.video-desc{
-    width: 50%;
-}
+
 .video-section .gallery{
     display: flex;
     align-items: center;
@@ -303,3 +254,92 @@ video{
     width: 100%;
     border-radius: 5px;
 }
+/* partners */
+
+
+
+.partners-types{
+    margin: 0 auto;
+    max-width: 600px;
+    margin-top: 60px;
+}
+.partners-types .type{
+    color: #1B2656;
+    font-weight: 600;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 5px;
+}
+.partners-types .type:hover{
+    color: #1690F0;
+    border-bottom: 2px solid #1690F0;
+}
+.isActive{
+    color: #1690F0 !important;
+    border-bottom: 2px solid #1690F0 !important;
+}
+.isSlider{
+    display: block !important;
+}
+@-webkit-keyframes scroll {
+    0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    }
+    100% {
+    -webkit-transform: translateX(calc(-250px * 7));
+    transform: translateX(calc(-250px * 7));
+    }
+    }
+    @keyframes scroll {
+    0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    }
+    100% {
+    -webkit-transform: translateX(calc(-250px * 7));
+    transform: translateX(calc(-250px * 7));
+    }
+    }
+    .slider {
+    height: 100px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    margin-top: 30px;
+    display: none;
+    }
+    .slider::before, .slider::after {
+    background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+    content: "";
+    height: 100px;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+    }
+    .slider::after {
+    right: 0;
+    top: 0;
+    -webkit-transform: rotateZ(180deg);
+    transform: rotateZ(180deg);
+    }
+    .slider::before {
+    left: 0;
+    top: 0;
+    }
+    .slider .slide-track {
+    -webkit-animation: scroll 40s linear infinite;
+    animation: scroll 40s linear infinite;
+    display: flex;
+    width: calc(250px * 14);
+    }
+    .slider .partner {
+    height: 100px;
+    width: 250px;
+    }
+    .slider .partner img{
+        width: 100%;
+    }
+   
