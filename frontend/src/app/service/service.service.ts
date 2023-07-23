@@ -1,14 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Products } from '../models/products';
 
 
 
 
-const httpOption={
-  headers:new HttpHeaders({'Content-Type':'application/Json'})
-}
 @Injectable({
   providedIn: 'root'
 })
@@ -18,8 +15,10 @@ export class ServiceService {
 
   constructor(
     private http: HttpClient,
-    private router: Router
   ) { }
+  getProducts():Observable<Products[]>{
+    return this.http.get<Products[]>(this.apiUrl+"/products");
+  }
 
   
 }

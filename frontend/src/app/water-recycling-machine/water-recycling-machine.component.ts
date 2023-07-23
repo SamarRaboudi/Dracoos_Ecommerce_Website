@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service/service.service';
+import { Products } from '../models/products';
 
 
 @Component({
@@ -21,9 +22,15 @@ export class WaterRecyclingMachineComponent implements OnInit {
   showTabContentBenefits: boolean = false;
   activeTab: string = ''; 
   rating : number = 3.5;
+  liste : Products[]=[];
+  nbProduct:number=0
   constructor(private service : ServiceService) { }
 
   ngOnInit(): void { 
+    this.service.getProducts().subscribe(products=>{
+      this.liste=products
+      this.nbProduct=products.length
+    })
   }
 
   decreaseQuantity() {
