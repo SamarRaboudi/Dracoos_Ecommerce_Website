@@ -22,6 +22,7 @@ import { RefundComponent } from './policies/refund/refund.component';
 import { ShippingComponent } from './policies/shipping/shipping.component';
 import { TermsOfServiceComponent } from './policies/terms-of-service/terms-of-service.component';
 import { HttpClientModule } from '@angular/common/http';
+import { InstallationGuideComponent } from './installation-guide/installation-guide.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { HttpClientModule } from '@angular/common/http';
     PrivacyComponent,
     RefundComponent,
     ShippingComponent,
-    TermsOfServiceComponent
+    TermsOfServiceComponent,
+    InstallationGuideComponent
   ],
   imports: [
     BrowserModule,

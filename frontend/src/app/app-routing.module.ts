@@ -15,6 +15,7 @@ import { PrivacyComponent } from './policies/privacy/privacy.component';
 import { RefundComponent } from './policies/refund/refund.component';
 import { ShippingComponent } from './policies/shipping/shipping.component';
 import { TermsOfServiceComponent } from './policies/terms-of-service/terms-of-service.component';
+import { InstallationGuideComponent } from './installation-guide/installation-guide.component';
 
 const routes: Routes = [
   { path: '', component:HomeComponent},
@@ -33,7 +34,7 @@ const routes: Routes = [
   { path: 'refund-policy', component:RefundComponent },
   { path: 'shipping-policy', component:ShippingComponent },
   { path: 'terms-of-service', component:TermsOfServiceComponent },
-
+  { path:'installation-guide', component:InstallationGuideComponent }
 ];
 
 @NgModule({
