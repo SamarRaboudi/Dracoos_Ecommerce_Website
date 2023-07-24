@@ -76,6 +76,9 @@
 .login-btn .btn{
     display: none;
 }
+.resp-link{
+    display: none;
+}
 
 /* .icon{
     font-size: 1.3rem;
@@ -137,6 +140,12 @@
         color: #1B2656;
     }
     .login-btn i{
+        display: none;
+    }
+    .resp-link{
+        display: block;
+    }
+    .no-resp-link{
         display: none;
     }
 

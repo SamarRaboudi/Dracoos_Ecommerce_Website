@@ -5,4 +5,6 @@ export class Blog {
     public imgSrc?:String ;
     public author?:String ;
     public createdAt?:Date ;
+    public link?:String ;
+    public likes?:number;
 }

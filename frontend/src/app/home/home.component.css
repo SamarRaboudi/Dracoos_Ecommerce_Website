@@ -359,6 +359,9 @@
     .slider .partner img{
         width: 100%;
     }
+    .btn-resp{
+        display: none;
+    }
     @media screen and (max-width: 1100px){
         .values{
             justify-content: center;
@@ -384,30 +387,39 @@
             font-size: 2rem;  
         
         }
-        .img-no-resp{
-            display: none;
-        }
-        .img-resp{
-            display: block;
-        }
         .partners-types .type{
             font-size: 0.9rem;
         }
+    
+        .splash-img{
+            min-width: 500px;
+            left: -30%;
+        }
+        .carousel-caption{
+            flex-direction: column;
+        }
+        .btn-resp{
+            display: block;
+        }
+
     
     }
    
     @media screen and (max-width: 700px){
         .carousel-inner{
-            padding-top: 0rem;
+            padding-top: 5rem;
         } 
         .splash-img{
             min-width: 300px;
             left: -50%;
         }
-        .carousel-caption{
-            flex-direction: column;
+        .img-no-resp{
+            display: none;
         }
-
+        .img-resp{
+            display: block;
+            margin-bottom: 20px;
+        }
 
     }
     
