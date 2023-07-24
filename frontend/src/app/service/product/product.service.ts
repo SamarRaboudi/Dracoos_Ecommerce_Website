@@ -12,6 +12,7 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   // Récupérer tous les produits depuis le backend
+  //////////////////////////
   getProducts(): Observable<Products[]> {
     return this.http.get<Products[]>(`${this.apiUrl}/products`);
   }
@@ -32,7 +33,7 @@ export class ProductService {
   }
 
   // Supprimer un produit par son ID en utilisant une requête DELETE au backend
-  deleteProduct(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/deleteProduct/${id}`);
-  }
+  //deleteProduct(id: number): Observable<any> {
+ //   return this.http.delete(`${this.apiUrl}/deleteProduct/${id}`);
+ // }
 }
